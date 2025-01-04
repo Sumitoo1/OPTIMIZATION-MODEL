@@ -1,6 +1,7 @@
 Task Overview:
 Output:
-![Uploading Screenshot 2025-01-04 112418.png…]()
+![Screenshot 2025-01-04 112418](https://github.com/user-attachments/assets/5efc7b4f-4b07-4825-8957-a6d6a22cea56)
+
 
 
 Task Name: Optimization Model for Solving a Business Problem
