@@ -1,0 +1,28 @@
+#Code For This Task:
+from pulp import LpMaximize, LpProblem, LpVariable
+
+# Create a linear programming problem
+problem = LpProblem("Maximize_Profit", LpMaximize)
+
+# Decision variables: number of units of Product A and Product B
+product_A = LpVariable("Product_A", lowBound=0, cat="Continuous")
+product_B = LpVariable("Product_B", lowBound=0, cat="Continuous")
+
+# Objective function: Maximize profit
+problem += 40 * product_A + 50 * product_B, "Total Profit"
+
+# Constraints:
+# Labor constraint: 1 unit of labor for Product A, 2 units for Product B
+problem += product_A + 2 * product_B <= 100, "Labor Constraint"
+
+# Material constraint: 2 units of material for Product A, 1 unit for Product B
+problem += 2 * product_A + product_B <= 80, "Material Constraint"
+
+# Solve the problem
+problem.solve()
+
+# Display the results
+print(f"Status: {problem.status}")
+print(f"Optimal number of Product A to produce: {product_A.varValue} units")
+print(f"Optimal number of Product B to produce: {product_B.varValue} units")
+print(f"Maximum Profit: ${problem.objective.value()}")
